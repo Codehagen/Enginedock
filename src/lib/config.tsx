@@ -144,123 +144,83 @@ export const siteConfig = {
   testimonials: [
     {
       id: 1,
-      text: "EngineDock has transformed how we handle banking integrations. The unified API saved us months of development time.",
-      name: "Alice Johnson",
-      company: "FinTech Solutions",
+      text: "EngineDock simplified our entire banking integration process. What used to take months now takes days to implement.",
+      name: "Sarah Chen",
+      company: "PayFlow Solutions",
       image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG9ydHJhaXR8ZW58MHx8MHx8fDA%3D",
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     },
     {
       id: 2,
-      text: "We've significantly reduced development time for our AI projects using this SDK. The multi-agent feature is a game-changer.",
-      name: "Bob Brown",
-      company: "NeuralForge",
+      text: "The automated reconciliation feature has saved our accounting team countless hours. It's a game-changer for our daily operations.",
+      name: "Michael Rodriguez",
+      company: "AccuBooks",
       image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     },
     {
       id: 3,
-      text: "The cross-language support allowed us to seamlessly integrate AI agents into our existing tech stack.",
-      name: "Charlie Davis",
-      company: "CodeHarbor",
+      text: "Starting with the free tier allowed us to test the waters. The seamless scaling options made it easy to grow with our needs.",
+      name: "Emma Thompson",
+      company: "StartupPay",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     },
     {
       id: 4,
-      text: "The AI Agent SDK's tool integration feature has streamlined our workflow automation processes.",
-      name: "Diana Evans",
-      company: "AutomateX",
+      text: "The AI-powered anomaly detection has helped us prevent several fraudulent transactions. It's like having an extra security team.",
+      name: "David Park",
+      company: "SecureFinance",
       image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjh8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     },
     {
       id: 5,
-      text: "The customizable agent behaviors have allowed us to create highly specialized AI solutions for our clients.",
-      name: "Ethan Ford",
-      company: "AICore",
+      text: "We integrated EngineDock's invoice processing in our accounting software. Our clients love how fast we process payments now.",
+      name: "Lisa Martinez",
+      company: "InvoicePro",
       image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MzJ8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     },
     {
       id: 6,
-      text: "The AI Agent SDK's efficiency features have significantly improved our system's performance and scalability.",
-      name: "Fiona Grant",
-      company: "ScaleAI",
+      text: "The unified API approach means we only need to integrate once to connect with multiple banks. It's brilliant!",
+      name: "James Wilson",
+      company: "BankConnect",
       image:
-        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDB8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     },
     {
       id: 7,
-      text: "The SDK's intuitive APIs have made it easy for our team to quickly prototype and deploy AI agent systems.",
-      name: "George Harris",
-      company: "RapidAI",
+      text: "Their free tier gave us everything we needed to launch our MVP. Scaling up was smooth as our customer base grew.",
+      name: "Nina Patel",
+      company: "FinStartup",
       image:
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NDR8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     },
     {
       id: 8,
-      text: "The AI Agent SDK's multi-agent system has enabled us to build complex, collaborative AI solutions with ease.",
-      name: "Hannah Irving",
-      company: "CollabAI",
+      text: "The real-time transaction monitoring has transformed how we handle our clients' accounts. It's incredibly powerful.",
+      name: "Robert Chang",
+      company: "WealthTech",
       image:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTJ8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     },
     {
       id: 9,
-      text: "The SDK's flexibility in integrating external tools has expanded our AI agents' capabilities tremendously.",
-      name: "Ian Johnson",
-      company: "FlexAI",
+      text: "We switched from multiple banking APIs to EngineDock. The time and cost savings have been substantial. The support team is also helpful.",
+      name: "Sophie Anderson",
+      company: "PaymentFlow",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTZ8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     },
     {
       id: 10,
-      text: "The AI Agent SDK's documentation and support have made our learning curve much smoother.",
-      name: "Julia Kim",
-      company: "DevAI",
+      text: "The documentation is excellent, and their support team is always ready to help. Made our integration process smooth.",
+      name: "Alex Kumar",
+      company: "TechFin",
       image:
-        "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NjR8fHBvcnRyYWl0fGVufDB8fDB8fHww",
-    },
-    {
-      id: 11,
-      text: "We've seen a significant boost in our AI's decision-making capabilities thanks to the AI Agent SDK.",
-      name: "Kevin Lee",
-      company: "DecisionTech",
-      image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzB8fHBvcnRyYWl0fGVufDB8fDB8fHww",
-    },
-    {
-      id: 12,
-      text: "The SDK's multi-agent system has revolutionized our approach to complex problem-solving.",
-      name: "Laura Martinez",
-      company: "SolveX",
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NzZ8fHBvcnRyYWl0fGVufDB8fDB8fHww",
-    },
-    {
-      id: 13,
-      text: "The customization options in the AI Agent SDK have allowed us to create truly unique AI solutions.",
-      name: "Michael Chen",
-      company: "UniqueAI",
-      image:
-        "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODJ8fHBvcnRyYWl0fGVufDB8fDB8fHww",
-    },
-    {
-      id: 14,
-      text: "The efficiency of the AI Agent SDK has significantly reduced our development time and costs.",
-      name: "Natalie Wong",
-      company: "FastTrackAI",
-      image:
-        "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8ODh8fHBvcnRyYWl0fGVufDB8fDB8fHww",
-    },
-    {
-      id: 15,
-      text: "The cross-language support has made it easy for our diverse team to collaborate on AI projects.",
-      name: "Oliver Smith",
-      company: "GlobalAI",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTR8fHBvcnRyYWl0fGVufDB8fDB8fHww",
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3",
     },
   ],
 };

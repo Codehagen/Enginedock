@@ -12,177 +12,106 @@ interface FeatureOption {
 const featureOptions: FeatureOption[] = [
   {
     id: 1,
-    title: "Simple Agent Workflow",
-    description: "Create a basic AI agent workflow with multiple agents.",
-    code: `import { Swarm, Agent } from 'ai-agent-sdk';
+    title: "Send Invoice",
+    description: "Send invoices through PowerOffice integration.",
+    code: `import { EngineDock } from 'enginedock';
 
-const client = new Swarm();
+const engine = new EngineDock('your_api_key_here');
 
-const transferToAgentB = (): Agent => {
-    return agentB;
-};
-
-const agentA = new Agent({
-    name: "Agent A",
-    instructions: "You are a helpful agent.",
-    functions: [transferToAgentB],
+// Sending an invoice
+await engine.invoices.send({
+  sender: {
+    name: 'Acme Corporation',
+    email: 'billing@acme.com',
+    address: '123 Business Lane, Suite 100',
+  },
+  recipient: {
+    name: 'John Doe',
+    email: 'john.doe@example.com',
+    address: '456 Customer Ave, Apt 302',
+  },
+  items: [
+    { description: 'Consulting Services', quantity: 10, unitPrice: 100 },
+    { description: 'Software License', quantity: 1, unitPrice: 500 },
+  ],
+  dueDate: '2024-12-01',
+  currency: 'USD',
+  notes: 'Thank you for your business!',
 });
 
-const agentB = new Agent({
-    name: "Agent B", 
-    instructions: "Only speak in Haikus.",
-});
-
-const run = async () => {
-    const response = await client.run({
-        agent: agentA,
-        messages: [{ role: "user", content: "I want to talk to agent B." }],
-    });
-    console.log('Response:', response);
-};
-
-run();`,
+console.log('Invoice sent successfully!');`,
   },
   {
     id: 2,
-    title: "Multi-Agent Collaboration",
-    description:
-      "Set up multiple AI agents to work together on a complex task.",
-    code: `import { Agent, MultiAgentSystem } from 'ai-agent-sdk';
+    title: "Bank Account Integration",
+    description: "Connect and monitor multiple bank accounts.",
+    code: `import { EngineDock } from 'enginedock';
 
-const researchAgent = new Agent('Researcher');
-const analysisAgent = new Agent('Analyst');
-const reportAgent = new Agent('Reporter');
+const engine = new EngineDock('your_api_key_here');
 
-const system = new MultiAgentSystem('MarketResearch');
-
-system.addAgent(researchAgent, {
-  task: 'collectData',
-  output: 'rawData'
+// Connect to multiple bank accounts
+const accounts = await engine.banking.connect({
+  providers: ['dnb', 'nordea', 'sbanken'],
+  refreshToken: true,
+  webhook: 'https://your-domain.com/webhook'
 });
 
-system.addAgent(analysisAgent, {
-  task: 'analyzeData',
-  input: 'rawData',
-  output: 'analysisResults'
+// Monitor transactions
+engine.banking.onTransaction((transaction) => {
+  console.log('New transaction:', transaction);
+  
+  if (transaction.amount > 10000) {
+    engine.notifications.send({
+      type: 'large_transaction',
+      data: transaction
+    });
+  }
 });
 
-system.addAgent(reportAgent, {
-  task: 'generateReport',
-  input: 'analysisResults',
-  output: 'finalReport'
-});
-
-const runResearch = async () => {
-  const finalReport = await system.run();
-  console.log('Research completed:', finalReport);
-};
-
-runResearch();`,
+// Get account balances
+const balances = await engine.banking.getBalances();
+console.log('Account balances:', balances);`,
   },
   {
     id: 3,
-    title: "Tool Integration",
-    description: "Integrate external tools and APIs into an AI agent workflow.",
-    code: `import { Agent, Tool } from 'ai-agent-sdk';
-import { Configuration, OpenAIApi } from 'openai';
+    title: "PowerOffice Income Data",
+    description: "Retrieve income data from PowerOffice.",
+    code: `import { EngineDock } from 'enginedock';
 
-const agent = new Agent('ResearchAssistant');
+const engine = new EngineDock('your_api_key_here');
 
-const openaiTool = new Tool('OpenAI', {
-  action: async (prompt: string) => {
-    const configuration = new Configuration({
-      apiKey: process.env.OPENAI_API_KEY,
+// Retrieve income data from PowerOffice
+async function getIncomeData(clientId) {
+  try {
+    const incomeData = await engine.powerOffice.getIncome({
+      clientId: clientId,
     });
-    const openai = new OpenAIApi(configuration);
-    const response = await openai.createCompletion({
-      model: "text-davinci-002",
-      prompt,
-    });
-    return response.data.choices[0].text;
-  }
-});
 
-const searchTool = new Tool('GoogleSearch', {
-  action: async (query: string) => {
-    const url = new URL('https://www.googleapis.com/customsearch/v1');
-    url.searchParams.append('key', process.env.GOOGLE_API_KEY);
-    url.searchParams.append('cx', process.env.GOOGLE_SEARCH_ENGINE_ID);
-    url.searchParams.append('q', query);
-
-    const response = await fetch(url);
-    const data = await response.json();
-    return data.items.slice(0, 5);
-  }
-});
-
-agent.addTool(openaiTool);
-agent.addTool(searchTool);
-
-const performResearch = async (topic: string) => {
-  const researchResult = await agent.performResearch(topic);
-  console.log('Research results:', researchResult);
-};
-
-performResearch('AI advancements in 2023');`,
-  },
-  {
-    id: 4,
-    title: "Customizable Agent Behavior",
-    description:
-      "Design a specialized AI agent with custom decision-making logic.",
-    code: `import { Agent, KnowledgeBase } from 'ai-agent-sdk';
-
-class CustomerSupportAgent extends Agent {
-  private knowledgeBase: KnowledgeBase;
-
-  constructor(name: string) {
-    super(name);
-    this.knowledgeBase = new KnowledgeBase('support-docs.json');
-  }
-
-  async decideAction(input: string): Promise<string> {
-    if (this.isSimpleQuery(input)) {
-      return this.provideDirectAnswer(input);
-    } else if (this.needsEscalation(input)) {
-      return this.escalateToHuman(input);
-    } else {
-      return this.generateDetailedResponse(input);
-    }
-  }
-
-  private isSimpleQuery(input: string): boolean {
-    // Custom logic to determine if the query is simple
-    return input.split(' ').length < 5;
-  }
-
-  private needsEscalation(input: string): boolean {
-    // Custom logic to decide if human intervention is needed
-    return input.toLowerCase().includes('urgent') || input.toLowerCase().includes('complaint');
-  }
-
-  private async provideDirectAnswer(input: string): Promise<string> {
-    return this.knowledgeBase.getQuickAnswer(input);
-  }
-
-  private async escalateToHuman(input: string): Promise<string> {
-    // Logic to forward the query to a human support agent
-    return "Your query has been escalated to our human support team. They will contact you shortly.";
-  }
-
-  private async generateDetailedResponse(input: string): Promise<string> {
-    // Use AI to generate a detailed response
-    return this.generateResponse(input);
+    console.log('Income Data:', incomeData);
+  } catch (error) {
+    console.error('Error fetching income data:', error.message);
   }
 }
 
-const handleCustomerQuery = async (query: string) => {
-  const supportAgent = new CustomerSupportAgent('HelpDesk');
-  const response = await supportAgent.handleQuery(query);
-  console.log('Agent response:', response);
-};
+// Example usage
+await getIncomeData('client_12345');`,
+  },
+  {
+    id: 4,
+    title: "Financial Reports",
+    description: "Generate simple financial reports.",
+    code: `import { EngineDock } from 'enginedock';
 
-handleCustomerQuery("How do I reset my password?");`,
+const engine = new EngineDock('your_api_key_here');
+
+// Generate a basic financial report
+const report = await engine.reports.create({
+  type: 'monthly',
+  month: '2024-01',
+  include: ['income', 'expenses', 'invoices']
+});
+
+console.log('Monthly Report:', report);`,
   },
 ];
 
