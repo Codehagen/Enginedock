@@ -79,6 +79,11 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         url: "/feedback",
         icon: Send,
       },
+      {
+        title: "Onboarding",
+        url: "/onboarding",
+        icon: LifeBuoy,
+      },
     ],
     projects: [
       {
