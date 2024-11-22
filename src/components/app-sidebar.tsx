@@ -2,19 +2,18 @@
 
 import * as React from "react";
 import {
-  Building,
-  Command,
-  CreditCard,
-  Frame,
-  Layers,
   LayoutDashboard,
-  Leaf,
+  Key,
+  Bell,
+  Settings,
+  History,
+  Code,
+  Webhook,
+  CreditCard,
   LifeBuoy,
-  Map,
-  PieChart,
-  PieChartIcon,
   Send,
-  Signal,
+  FileText,
+  Activity,
 } from "lucide-react";
 
 import { NavMain } from "@/components/nav-main";
@@ -30,6 +29,8 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from "@/components/ui/sidebar";
+import { siteConfig } from "@/lib/config";
+import { Icons } from "./icons";
 
 const data = {
   user: {
@@ -45,63 +46,73 @@ const data = {
       isActive: true,
     },
     {
-      title: "Banking",
-      url: "/banking",
-      icon: Layers,
+      title: "API Keys",
+      url: "/api-keys",
+      icon: Key,
     },
     {
-      title: "Categories",
-      url: "/categories",
-      icon: PieChartIcon,
+      title: "Webhooks",
+      url: "/webhooks",
+      icon: Webhook,
     },
     {
-      title: "Investments",
-      url: "/investments",
-      icon: Signal,
+      title: "Documentation",
+      url: "/docs",
+      icon: FileText,
     },
     {
-      title: "Assets",
-      url: "/assets",
-      icon: Building,
+      title: "Usage & Logs",
+      url: "/usage",
+      icon: Activity,
     },
     {
-      title: "Savings",
-      url: "/savings",
-      icon: Leaf,
+      title: "Integrations",
+      url: "/integrations",
+      icon: Code,
     },
     {
-      title: "Liabilities",
-      url: "/liabilities",
+      title: "Billing",
+      url: "/billing",
       icon: CreditCard,
+    },
+    {
+      title: "Notifications",
+      url: "/notifications",
+      icon: Bell,
+    },
+    {
+      title: "Settings",
+      url: "/settings",
+      icon: Settings,
     },
   ],
   navSecondary: [
     {
       title: "Support",
-      url: "#",
+      url: "/support",
       icon: LifeBuoy,
     },
     {
       title: "Feedback",
-      url: "#",
+      url: "/feedback",
       icon: Send,
     },
   ],
   projects: [
     {
-      name: "Account 1",
-      url: "#",
-      icon: Frame,
+      name: "Development",
+      url: "/environments/dev",
+      icon: Code,
     },
     {
-      name: "Account 2",
-      url: "#",
-      icon: PieChart,
+      name: "Staging",
+      url: "/environments/staging",
+      icon: History,
     },
     {
-      name: "Account 3",
-      url: "#",
-      icon: Map,
+      name: "Production",
+      url: "/environments/prod",
+      icon: Activity,
     },
   ],
 };
@@ -115,10 +126,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
             <SidebarMenuButton size="lg" asChild>
               <a href="#">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
-                  <Command className="size-4" />
+                  <Icons.logo className="h-4 w-4" />
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
-                  <span className="truncate font-semibold">Badget</span>
+                  <span className="truncate font-semibold">
+                    {siteConfig.name}
+                  </span>
                   <span className="truncate text-xs">Enterprise</span>
                 </div>
               </a>

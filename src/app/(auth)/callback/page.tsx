@@ -40,14 +40,14 @@ export default function CallbackPage() {
         spread: 360,
         startVelocity: 45,
         elementCount: 200,
-        decay: 0.90,
+        decay: 0.9,
         scalar: 1.2,
         drift: 0,
         origin: {
           x: 0.5,
           y: 0.3,
         },
-        colors: ['#4CAF50', '#2196F3', '#FF9800', '#E91E63', '#9C27B0'],
+        colors: ["#4CAF50", "#2196F3", "#FF9800", "#E91E63", "#9C27B0"],
       });
     }
   };
