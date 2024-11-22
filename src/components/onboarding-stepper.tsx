@@ -11,6 +11,7 @@ import {
   ShieldCheck,
   Plus,
   PartyPopper,
+  Loader2,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
@@ -25,12 +26,15 @@ import {
 } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { CodeBlock } from "@/components/ui/code-block";
+import confetti from "canvas-confetti";
 
 export default function OnboardingStepper() {
   const [currentStep, setCurrentStep] = useState(1);
   const [apiKey, setApiKey] = useState("");
   const [showApiKey, setShowApiKey] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [testing, setTesting] = useState(false);
+  const [testSuccess, setTestSuccess] = useState(false);
 
   const generateApiKey = () => {
     const key = "ed_" + Math.random().toString(36).substring(2, 15);
@@ -66,6 +70,52 @@ print('Connection successful:', response)`,
     apiKey || "••••••••••••••••••••••••••••••••••"
   }" \\
   -H "Content-Type: application/json"`,
+  };
+
+  const triggerConfetti = () => {
+    const end = Date.now() + 3 * 1000; // 3 seconds
+    const colors = ["#a786ff", "#fd8bbc", "#eca184", "#f8deb1"];
+
+    const frame = () => {
+      if (Date.now() > end) return;
+
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        startVelocity: 60,
+        origin: { x: 0, y: 0.5 },
+        colors: colors,
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        startVelocity: 60,
+        origin: { x: 1, y: 0.5 },
+        colors: colors,
+      });
+
+      requestAnimationFrame(frame);
+    };
+
+    frame();
+  };
+
+  const handleTestConnection = async () => {
+    setTesting(true);
+
+    // Simulate API test
+    await new Promise((resolve) => setTimeout(resolve, 1500));
+
+    setTestSuccess(true);
+    triggerConfetti();
+
+    // Reset after animation
+    setTimeout(() => {
+      setTesting(false);
+      setCurrentStep(3);
+    }, 2000);
   };
 
   return (
@@ -169,16 +219,37 @@ print('Connection successful:', response)`,
                 </TabsList>
                 {Object.entries(codeExamples).map(([lang, code]) => (
                   <TabsContent key={lang} value={lang}>
-                    <CodeBlock 
+                    <CodeBlock
                       code={code}
-                      language={lang === 'nodejs' ? 'javascript' : lang}
+                      language={lang === "nodejs" ? "javascript" : lang}
                     />
                   </TabsContent>
                 ))}
                 <div className="p-4 border-t">
-                  <Button disabled={currentStep !== 2}>
-                    <PartyPopper className="mr-2 h-4 w-4" />
-                    Test Connection
+                  <Button
+                    disabled={currentStep !== 2}
+                    onClick={handleTestConnection}
+                    className={cn(
+                      testSuccess &&
+                        "bg-primary/10 text-primary hover:bg-primary/20"
+                    )}
+                  >
+                    {testing ? (
+                      <>
+                        <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                        Testing...
+                      </>
+                    ) : testSuccess ? (
+                      <>
+                        <Check className="mr-2 h-4 w-4" />
+                        Connection Successful!
+                      </>
+                    ) : (
+                      <>
+                        <PartyPopper className="mr-2 h-4 w-4" />
+                        Test Connection
+                      </>
+                    )}
                   </Button>
                 </div>
               </Tabs>
