@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import { usePathname } from "next/navigation";
 import {
   LayoutDashboard,
   Key,
@@ -32,104 +33,79 @@ import {
 import { siteConfig } from "@/lib/config";
 import { Icons } from "./icons";
 
-const data = {
-  user: {
-    name: "Codehagen",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
-  },
-  navMain: [
-    {
-      title: "Dashboard",
-      url: "/dashboard",
-      icon: LayoutDashboard,
-      isActive: true,
-    },
-    {
-      title: "API Keys",
-      url: "/api-keys",
-      icon: Key,
-    },
-    // {
-    //   title: "Webhooks",
-    //   url: "/webhooks",
-    //   icon: Webhook,
-    // },
-    // {
-    //   title: "Documentation",
-    //   url: "/docs",
-    //   icon: FileText,
-    // },
-    {
-      title: "Usage & Logs",
-      url: "/usage",
-      icon: Activity,
-    },
-    {
-      title: "Callback-test",
-      url: "/callback?provider=poweroffice&code=abc123&state=xyz789",
-      icon: Send,
-    },
-    // {
-    //   title: "Integrations",
-    //   url: "/integrations",
-    //   icon: Code,
-    // },
-    // {
-    //   title: "Billing",
-    //   url: "/billing",
-    //   icon: CreditCard,
-    // },
-    // {
-    //   title: "Notifications",
-    //   url: "/notifications",
-    //   icon: Bell,
-    // },
-    // {
-    //   title: "Settings",
-    //   url: "/settings",
-    //   icon: Settings,
-    // },
-  ],
-  navSecondary: [
-    {
-      title: "Support",
-      url: "/support",
-      icon: LifeBuoy,
-    },
-    {
-      title: "Feedback",
-      url: "/feedback",
-      icon: Send,
-    },
-  ],
-  projects: [
-    {
-      name: "Development",
-      url: "/environments/dev",
-      icon: Code,
-    },
-    {
-      name: "Staging",
-      url: "/environments/staging",
-      icon: History,
-    },
-    {
-      name: "Production",
-      url: "/environments/prod",
-      icon: Activity,
-    },
-  ],
-};
-
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const pathname = usePathname();
+
+  const data = {
+    user: {
+      name: "Codehagen",
+      email: "m@example.com",
+      avatar: "/avatars/shadcn.jpg",
+    },
+    navMain: [
+      {
+        title: "Dashboard",
+        url: "/dashboard",
+        icon: LayoutDashboard,
+        isActive: pathname === "/dashboard",
+      },
+      {
+        title: "API Keys",
+        url: "/api-keys",
+        icon: Key,
+        isActive: pathname === "/api-keys",
+      },
+      {
+        title: "Usage & Logs",
+        url: "/usage",
+        icon: Activity,
+        isActive: pathname === "/usage",
+      },
+      {
+        title: "Settings",
+        url: "/settings",
+        icon: Settings,
+        isActive: pathname === "/settings",
+      },
+    ],
+    navSecondary: [
+      {
+        title: "Support",
+        url: "/support",
+        icon: LifeBuoy,
+      },
+      {
+        title: "Feedback",
+        url: "/feedback",
+        icon: Send,
+      },
+    ],
+    projects: [
+      {
+        name: "Development",
+        url: "/environments/dev",
+        icon: Code,
+      },
+      {
+        name: "Staging",
+        url: "/environments/staging",
+        icon: History,
+      },
+      {
+        name: "Production",
+        url: "/environments/prod",
+        icon: Activity,
+      },
+    ],
+  };
+
   return (
     <Sidebar variant="inset" {...props}>
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton size="lg" asChild>
-              <a href="#">
+              <a href="/">
                 <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
                   <Icons.logo className="h-4 w-4" />
                 </div>
