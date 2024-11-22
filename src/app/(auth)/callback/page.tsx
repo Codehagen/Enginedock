@@ -1,5 +1,7 @@
 "use client";
 
+// TESTING: /callback?provider=poweroffice&code=abc123&state=xyz789
+
 import { useEffect, useState, useRef } from "react";
 import { useSearchParams } from "next/navigation";
 import { Icons } from "@/components/icons";

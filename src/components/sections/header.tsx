@@ -6,17 +6,10 @@ import { buttonVariants } from "@/components/ui/button";
 import { siteConfig } from "@/lib/config";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { SignInButton, UserButton, useAuth } from "@clerk/nextjs";
 
 export function Header() {
   const { isSignedIn, isLoaded } = useAuth();
-  const router = useRouter();
-
-  // Redirect to dashboard if signed in
-  if (isLoaded && isSignedIn) {
-    router.push("/dashboard");
-  }
 
   return (
     <header className="sticky top-0 h-[var(--header-height)] z-50 p-0 bg-background/60 backdrop-blur">
@@ -29,11 +22,22 @@ export function Header() {
           <Icons.logo className="w-auto" />
           <span className="font-semibold text-lg">{siteConfig.name}</span>
         </Link>
-        <div className="hidden lg:block">
+        <div className="hidden lg:flex items-center gap-4">
           {isLoaded && (
             <>
               {isSignedIn ? (
-                <UserButton afterSignOutUrl="/" />
+                <div className="flex items-center gap-4">
+                  <Link
+                    href="/dashboard"
+                    className={cn(
+                      buttonVariants({ variant: "outline" }),
+                      "h-8 tracking-tight font-medium"
+                    )}
+                  >
+                    Dashboard
+                  </Link>
+                  <UserButton afterSignOutUrl="/" />
+                </div>
               ) : (
                 <SignInButton mode="modal">
                   <button

@@ -50,41 +50,46 @@ const data = {
       url: "/api-keys",
       icon: Key,
     },
-    {
-      title: "Webhooks",
-      url: "/webhooks",
-      icon: Webhook,
-    },
-    {
-      title: "Documentation",
-      url: "/docs",
-      icon: FileText,
-    },
+    // {
+    //   title: "Webhooks",
+    //   url: "/webhooks",
+    //   icon: Webhook,
+    // },
+    // {
+    //   title: "Documentation",
+    //   url: "/docs",
+    //   icon: FileText,
+    // },
     {
       title: "Usage & Logs",
       url: "/usage",
       icon: Activity,
     },
     {
-      title: "Integrations",
-      url: "/integrations",
-      icon: Code,
+      title: "Callback-test",
+      url: "/callback?provider=poweroffice&code=abc123&state=xyz789",
+      icon: Send,
     },
-    {
-      title: "Billing",
-      url: "/billing",
-      icon: CreditCard,
-    },
-    {
-      title: "Notifications",
-      url: "/notifications",
-      icon: Bell,
-    },
-    {
-      title: "Settings",
-      url: "/settings",
-      icon: Settings,
-    },
+    // {
+    //   title: "Integrations",
+    //   url: "/integrations",
+    //   icon: Code,
+    // },
+    // {
+    //   title: "Billing",
+    //   url: "/billing",
+    //   icon: CreditCard,
+    // },
+    // {
+    //   title: "Notifications",
+    //   url: "/notifications",
+    //   icon: Bell,
+    // },
+    // {
+    //   title: "Settings",
+    //   url: "/settings",
+    //   icon: Settings,
+    // },
   ],
   navSecondary: [
     {
